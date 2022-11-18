@@ -25,7 +25,6 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo -E apt -qq update
-        sudo -E apt -qq upgrade -y
         sudo -E apt -qq install -y git-core build-essential libssl-dev libncurses5-dev unzip gawk asciidoc binutils bzip2 gettext git libz-dev patch python3.5 unzip subversion mercurial ccache sudo rsync screen
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
