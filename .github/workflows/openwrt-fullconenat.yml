@@ -68,12 +68,6 @@ jobs:
         echo -e "$(nproc) thread compile"
         make package/fullconenat/compile -j$(nproc) || make package/fullconenat/compile -j1 || make package/fullconenat/compile -j1 V=s
 
-    - name: Compile the firewall
-      run: |
-        cd sdk
-        echo -e "$(nproc) thread compile"
-        make package/firewall/compile -j$(nproc) || make package/firewall/compile -j1 || make package/firewall/compile -j1 V=s
-
     - name: Upload bin directory
       uses: actions/upload-artifact@main
       with:
