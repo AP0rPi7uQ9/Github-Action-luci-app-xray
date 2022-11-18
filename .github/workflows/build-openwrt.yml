@@ -43,10 +43,10 @@ jobs:
         git clone https://github.com/yichya/luci-app-xray.git package/luci-app-xray
         
     - name: Update feeds
-      run: ./scripts/feeds update -a
+      run: cd sdk && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: ./scripts/feeds install -a
+      run: cd sdk && ./scripts/feeds install -a
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
