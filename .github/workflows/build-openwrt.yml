@@ -11,6 +11,7 @@ on:
         
 env:
   SDK_URL: https://downloads.openwrt.org/releases/19.07.3/targets/ramips/mt7621/openwrt-sdk-19.07.3-ramips-mt7621_gcc-7.5.0_musl.Linux-x86_64.tar.xz
+  CONFIG_FILE: x86_64.config
 
 jobs:
   build:
@@ -47,6 +48,10 @@ jobs:
 
     - name: Install feeds
       run: cd sdk && ./scripts/feeds install -a
+      
+    - name: Load custom configuration
+      run: |
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE sdk/.config
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
